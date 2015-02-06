@@ -16,6 +16,7 @@ Vagrant.configure(2) do |config|
     sudo git submodule update
     cd /srv/dfhack/build
     sudo cmake .. -DCMAKE_BUILD_TYPE:string=Release -DCMAKE_INSTALL_PREFIX=/opt -Wno-dev
+    sudo sed -i 's/BUILD_STONESENSE:BOOL=OFF/BUILD_STONESENSE:BOOL=ON/' /srv/dfhack/build/CMakeCache.txt
     sudo make install
     sudo rm -Rf /vagrant/dfhack
     mkdir -p /vagrant/dfhack
